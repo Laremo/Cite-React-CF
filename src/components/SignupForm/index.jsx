@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const SignupForm = () => {
@@ -16,8 +15,6 @@ const SignupForm = () => {
   const handleSubmitForm = (data) => {
     console.log(data);
   };
-
-  console.log(errors);
 
   return (
     <form onSubmit={handleSubmit(handleSubmitForm)}>

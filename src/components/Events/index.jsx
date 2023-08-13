@@ -1,21 +1,21 @@
-import { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
+import useEventsData from '../../Hooks/useEventsData';
 import EventItem from './components/eventItem/EventItem';
-import eventsJSON from '../../data/events.json';
 
 const Events = ({ searchValue }) => {
-  const [data] = useState(eventsJSON);
-  const { events } = data._embedded;
+  const { events, isLoading, error } = useEventsData();
+  const navigate = useNavigate();
 
   const handleEventItemClick = (id) => {
-    console.log('evento clickeado', id);
+    navigate(`/detail/${id}`);
   };
 
   const renderEvents = () => {
     let filteredEvents = events;
+
     if (searchValue.length > 0) {
       filteredEvents = events.filter((eventItem) =>
-        eventItem.name.includes(searchValue)
+        eventItem.name.toLowerCase().includes(searchValue)
       );
     }
 
@@ -31,9 +31,17 @@ const Events = ({ searchValue }) => {
         />
       ))
     ) : (
-      <p>Oops!, no encontramos ningún evento que conicida con tu búsqueda</p>
+      <div>Oops! no encontramos eventos relacionados con tu búsqueda</div>
     );
   };
+
+  if (error?.name) {
+    return <div>Ha ocurrido un error</div>;
+  }
+
+  if (isLoading) {
+    return <div>Cargando... </div>;
+  }
 
   return (
     <>
