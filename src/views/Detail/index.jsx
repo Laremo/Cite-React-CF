@@ -13,7 +13,9 @@ const Detail = () => {
     const fetchEventDetails = async () => {
       try {
         const details = await fetch(
-          `https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=bmV250Hm1UOr4hsKaG91kf8SFF1lDfuT`
+          `${import.meta.env.VITE_BASE_URL}/${eventId}?apikey=${
+            import.meta.env.VITE_TM_API_KEY
+          }`
         );
         const data = await details.json();
         setEventData(data);
@@ -31,7 +33,6 @@ const Detail = () => {
 
   if (Object.keys(error) > 0) return <div> Ha ocurrido un error...</div>;
 
-  console.log(eventData);
   return (
     <div className={styles.infoContainer}>
       <div className={styles.mainInfoContainer}>
