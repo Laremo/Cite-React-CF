@@ -29,3 +29,15 @@
 .seeMoreBtn {
   margin-top: 8px;
 }
+
+.imageContainer {
+  position: relative;
+}
+
+.heartButton {
+  position: absolute;
+  width: 24px;
+  top: 4px;
+  left: 4px;
+  cursor: pointer;
+}

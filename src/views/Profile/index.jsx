@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 const Profile = () => {
   return (
     <div>
-      <p>Profile!</p>
+      <p>profile!</p>
       <Outlet />
     </div>
   );

@@ -30,7 +30,7 @@ export default function EventsContainer({
         nextLabel=' >'
         onPageChange={onPageClick}
         pageRangeDisplayed={4}
-        pageCount={totalPages}
+        pageCount={totalPages ? totalPages : 0}
         previousLabel='< '
         renderOnZeroPageCount={null}
       />

@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import eventsJSON from '../data/events.json';
 
-const useEventsData = () => {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState({});
+//Hook para mantener los datos en un estado local (respecto al comp)
 
+const useEventsData = () => {
   const fetchEvents = async (term) => {
     try {
       const events = await fetch(
@@ -19,9 +17,6 @@ const useEventsData = () => {
     } catch (error) {
       setError(error);
     }
-    // const data = eventsJSON;
-    // setData(data);
-    // setIsLoading(false);
   };
 
   return {
