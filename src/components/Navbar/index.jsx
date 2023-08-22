@@ -23,6 +23,8 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
         marginBottom: 14,
         width: '100%',
         display: 'flex',
+        border: 'solid 3px black',
+        padding: '8px',
       }}>
       <div style={{ flex: 1, display: 'flex' }}>
         <p style={{ fontSize: '24px', fontWeight: 'bold' }}>Mi boletera</p>
