@@ -1,6 +1,5 @@
 import { useState } from 'react';
-
-const LIKED_ENVETS_STORAGE_KEY = 'likedEvents';
+import { LIKED_ENVETS_STORAGE_KEY } from '../utils/constants';
 
 const getLikedEvents = () => {
   return JSON.parse(localStorage.getItem(LIKED_ENVETS_STORAGE_KEY));
